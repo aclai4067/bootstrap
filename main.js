@@ -64,3 +64,27 @@ const cardBuilder = (pieArr) => {
 };
 
 cardBuilder(pies);
+
+const btnClick = (e) => {
+    const selectedInstructor = e.target.id;
+    const selectedPies = [];
+    for (let i = 0; i < pies.length; i++) {
+        const currentPie = pies[i];
+        if (selectedInstructor === currentPie.instructor) {
+            selectedPies.push(currentPie);
+        };
+
+    };
+    if (selectedInstructor === 'all') {
+        cardBuilder(pies);
+    } else {
+        cardBuilder(selectedPies);
+    }
+
+};
+
+document.getElementById('zoe').addEventListener('click', btnClick);
+document.getElementById('michael').addEventListener('click', btnClick);
+document.getElementById('callan').addEventListener('click', btnClick);
+document.getElementById('all').addEventListener('click', btnClick);
+
